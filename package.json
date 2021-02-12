@@ -1,0 +1,25 @@
+{
+    "name": "dfl",
+    "displayName": "DFlat",
+    "description": "Language support for D-Flat musical language",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.53.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "dflat",
+            "aliases": ["D-Flat", "dflat"],
+            "extensions": [".dfl"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "dflat",
+            "scopeName": "source.dflat",
+            "path": "./syntaxes/dflat.tmLanguage.json"
+        }]
+    }
+}
