@@ -13,6 +13,9 @@
     },
     {
       "include": "#comment-block"
+    },
+    {
+      "include": "#constants"
     }
   ],
   "repository": {
@@ -20,7 +23,7 @@
       "patterns": [
         {
           "name": "keyword.control.dflat",
-          "match": "\\b(if|while|for|return)\\b"
+          "match": "\\b(declare|loop)\\b"
         }
       ]
     },
@@ -65,6 +68,18 @@
         {
           "include": "#comment-block",
           "name": "comment"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\d+((\\.(?!\\D))|(\\.?))",
+          "name": "constant.numeric.dflat"
+        },
+        {
+          "match": "(?<=\\<)\\d{1,2}[AaBbCcDdEeFfGg]{1}(\\#|b)?(?=(\\d+\\.?)?\\>)",
+          "name": "constant.other.dflat"
         }
       ]
     }
