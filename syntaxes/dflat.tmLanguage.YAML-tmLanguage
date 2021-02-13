@@ -1,0 +1,47 @@
+$schema: 'https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json'
+name: D-Flat
+patterns:
+    -
+        include: '#keywords'
+    -
+        include: '#strings'
+    -
+        include: '#comment'
+    -
+        include: '#comment-block'
+repository:
+    keywords:
+        patterns:
+            -
+                name: keyword.control.dflat
+                match: \b(if|while|for|return)\b
+    strings:
+        name: string.quoted.double.dflat
+        begin: '"'
+        end: '"'
+        patterns:
+            -
+                name: constant.character.escape.dflat
+                match: \\.
+    comment:
+        begin: (^[ \t]+)?(?=\/\/)
+        beginCaptures:
+            '1': {name: punctuation.whitespace.comment.leading.dflat}
+        end: (?!\G)
+        patterns:
+            -
+                begin: '\/\/'
+                beginCaptures:
+                    '0': {name: punctuation.definition.comment.dflat}
+                end: '\n'
+                name: comment.line.doubleslash.dflat
+    comment-block:
+        begin: '\/\*'
+        contentName: comment
+        end: '\*\/'
+        name: comment
+        patterns:
+            -
+                include: '#comment-block'
+                name: comment
+scopeName: source.dflat
